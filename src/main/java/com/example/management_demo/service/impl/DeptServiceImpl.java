@@ -1,5 +1,6 @@
 package com.example.management_demo.service.impl;
 
+import com.example.management_demo.aop.MyLog;
 import com.example.management_demo.mapper.DeptMapper;
 import com.example.management_demo.mapper.EmpMapper;
 import com.example.management_demo.pojo.Dept;
@@ -22,11 +23,13 @@ public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptLogService deptLogService;
 
+    @MyLog
     @Override
     public List<Dept> list() {
         return deptMapper.list();
     }
 
+    @MyLog
     @Transactional
     public void delete(Integer id) {
         try {
